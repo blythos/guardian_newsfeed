@@ -1,12 +1,13 @@
 <template lang="html">
 <div class="listview">
 <ul>
-  <li v-for="keyword in keywords">{{keyword}}</li>
+  <tag-item v-for="keyword in keywords" :keyword="keyword" />
 </ul>
 </div>
 </template>
 
 <script>
+import TagItem from '@/components/TagItem'
 export default {
   name: 'tags-list',
   data() {
@@ -14,12 +15,9 @@ export default {
       keywords: ["brexit", "politics"],
     }
   },
-  methods: {
-      handeClick() {
-        eventBus.$emit('keyword-selected', this.keyword);
-      }
-  },
-  props: ['keyword']
+  components: {
+    TagItem
+  }
 }
 </script>
 
