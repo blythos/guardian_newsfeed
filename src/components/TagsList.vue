@@ -1,5 +1,6 @@
 <template lang="html">
-<div class="listview">
+<div class="listview"> <label for="add-tag">Add tag: </label>
+  <input type="text" name="add-tag" v-model="newTag" value="" @keyup.enter="addTag">
   <p>Order by</p>
   <button @click="orderToggle">{{this.order}}</button>
 <ul>
@@ -15,7 +16,8 @@ export default {
   data() {
     return {
       keywords: ["brexit", "politics", "videogames", "phoebe waller-bridge", "killing eve", "steven universe"],
-      order: 'newest'
+      order: 'newest',
+      newTag: ""
     }
   },
   methods: {
@@ -25,6 +27,9 @@ export default {
       } else {
         this.order = 'newest';
       }
+    },
+    addTag() {
+      this.keywords.push(this.newTag)
     }
   },
   components: {
