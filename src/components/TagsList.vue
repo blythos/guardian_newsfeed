@@ -1,7 +1,9 @@
 <template lang="html">
 <div class="listview">
+  <p>Order by</p>
+  <button @click="orderToggle">{{this.order}}</button>
 <ul>
-  <tag-item v-for="keyword in keywords" :keyword="keyword" />
+  <tag-item v-for="keyword in keywords" :order="order" :keyword="keyword" />
 </ul>
 </div>
 </template>
@@ -13,6 +15,16 @@ export default {
   data() {
     return {
       keywords: ["brexit", "politics"],
+      order: 'newest'
+    }
+  },
+  methods: {
+    orderToggle() {
+      if (this.order === 'newest') {
+        this.order = 'relevance';
+      } else {
+        this.order = 'newest';
+      }
     }
   },
   components: {

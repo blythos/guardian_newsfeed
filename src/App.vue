@@ -2,7 +2,7 @@
   <div id="app">
     <header-bar />
     <tags-list />
-    <articles-list />
+    <articles-list :results="results" />
   </div>
 </template>
 
@@ -22,13 +22,13 @@ export default {
   },
   data() {
     return {
-      selectedKeyword: null
+      selectedKeyword: null,
+      results: null
     }
   },
   mounted() {
-    eventBus.$on('keyword-selected', (keyword) => {
-      this.selectedKeyword = keyword;
-      console.log(this.selectedKeyword);
+    eventBus.$on('results-selected', (results) => {
+      this.results = results.then(res => res.json()).then(data => this.results = data.response.results);
     })
   }
 }
