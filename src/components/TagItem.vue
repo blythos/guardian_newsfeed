@@ -1,5 +1,5 @@
 <template lang="html">
-    <ul @click="handeClick">
+    <ul @click="handleClick">
       {{this.keyword}}
     </ul>
 </template>
@@ -10,7 +10,7 @@ export default {
   name: 'tag-item',
   props: ['keyword', 'order'],
   methods: {
-    handeClick() {
+    handleClick() {
       eventBus.$emit('results-selected',
       fetch(`https://content.guardianapis.com/search?q=${this.keyword}&format=json&api-key=test&order-by=${this.order}`)
       );
@@ -20,4 +20,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+  ul {
+    cursor: pointer;
+    color: grey;
+    text-decoration: underline;
+  }
 </style>

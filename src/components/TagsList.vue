@@ -14,7 +14,7 @@ export default {
   name: 'tags-list',
   data() {
     return {
-      keywords: ["brexit", "politics"],
+      keywords: ["brexit", "politics", "videogames", "phoebe waller-bridge", "killing eve", "steven universe"],
       order: 'newest'
     }
   },
