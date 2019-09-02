@@ -9,7 +9,7 @@
 <script>
 import TagsList from '@/components/TagsList';
 import HeaderBar from '@/components/HeaderBar';
-import ArticlesList from '@/components/ArticlesList'
+import ArticlesList from '@/components/ArticlesList';
 
 import {eventBus} from '@/main.js';
 
